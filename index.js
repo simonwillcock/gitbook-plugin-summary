@@ -23,18 +23,20 @@ module.exports = {
       glob(
         `*/**/*.md`,
         {
-          cwd: root,
-          ignore: ["node_modules"]
+          cwd: root
         },
         ( err, files ) => {
           let summaryContent = ( bookTitle ? `# ${bookTitle}\n\n` : '' )
 
           files.forEach( ( filePath ) => {
-            console.log(`Parsing: ${root}/${filePath}`);
-            const markdown = jsonMark.parse( fs.readFileSync( `${root}/${filePath}`, { encoding: 'utf8' } ) ),
-                  fileTitle = markdown.order[0]
+            if (filePath.indexOf("node_modules") !== -1)
+            {
+              console.log(`Parsing: ${root}/${filePath}`);
+              const markdown = jsonMark.parse( fs.readFileSync( `${root}/${filePath}`, { encoding: 'utf8' } ) ),
+                    fileTitle = markdown.order[0]
 
-            summaryContent += generateEntry( fileTitle, filePath, readmeFilename )
+              summaryContent += generateEntry( fileTitle, filePath, readmeFilename )
+            }
           })
 
           fs.writeFileSync( `${root}/${summaryFilename}`, summaryContent, { encoding: 'utf8' } )
