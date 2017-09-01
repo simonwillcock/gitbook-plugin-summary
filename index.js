@@ -29,7 +29,7 @@ module.exports = {
           let summaryContent = ( bookTitle ? `# ${bookTitle}\n\n` : '' )
 
           files.forEach( ( filePath ) => {
-            console.log(`Parsing: ${filePath}`);
+            console.log(`Parsing: ${root}/${filePath}`);
             const markdown = jsonMark.parse( fs.readFileSync( `${root}/${filePath}`, { encoding: 'utf8' } ) ),
                   fileTitle = markdown.order[0]
 
