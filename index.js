@@ -24,7 +24,7 @@ module.exports = {
         `*/**/*.md`,
         {
           cwd: root,
-          ignore: "node_modules"
+          ignore: ["node_modules"]
         },
         ( err, files ) => {
           let summaryContent = ( bookTitle ? `# ${bookTitle}\n\n` : '' )
