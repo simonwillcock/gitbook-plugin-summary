@@ -29,7 +29,7 @@ module.exports = {
           let summaryContent = ( bookTitle ? `# ${bookTitle}\n\n` : '' )
 
           files.forEach( ( filePath ) => {
-            if (filePath.indexOf("node_modules") !== -1)
+            if (filePath.indexOf("node_modules") === -1)
             {
               console.log(`Parsing: ${root}/${filePath}`);
               const markdown = jsonMark.parse( fs.readFileSync( `${root}/${filePath}`, { encoding: 'utf8' } ) ),
