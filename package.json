@@ -1,6 +1,6 @@
 {
   "name": "gitbook-plugin-summary",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Gitbook plugin to auto-generate SUMMARY.md",
   "main": "index.js",
   "scripts": {},
@@ -28,6 +28,6 @@
   },
   "dependencies": {
     "glob": "^7.1.2",
-    "jsonmark": "0.0.1"
+    "jsonmark": "git://github.com/simonwillcock/jsonmark.git#simonwillcock-trim-row-1"
   }
 }
